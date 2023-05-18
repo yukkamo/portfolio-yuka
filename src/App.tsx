@@ -1,7 +1,7 @@
 // import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
-import { styled } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 
 const WORKS_LIST = [
   {
@@ -105,6 +105,18 @@ padding-right: 24px;
 
 `;
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(50%); 
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
 const HeroImage = styled.div`
 width: 100%;
 height: 700px;
@@ -125,6 +137,9 @@ align-items: center;
   font-family: sans-serif;
   color: white;
   text-shadow: #000 1px 0 10px;
+  
+  // アニメーション
+  animation: ${fadeIn} 1s ease-in-out;
 }
 `;
 
