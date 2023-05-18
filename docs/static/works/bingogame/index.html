@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINGO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        let oldList = [];
+        let oldBingo = [];
+
+        const reset = () => {
+            console.log('ビンゴリセット')
+
+
+
+            oldList.forEach((old) => {
+                old.style.color = '#000';
+                old.style.backgroundColor = '#fff';
+            })
+
+            oldList = [];
+
+            console.log(oldList);
+
+            oldBingo = [];
+
+            console.log(oldBingo);
+
+
+            // const current = bingoNumList[- 1];
+
+            // console.log(current)
+
+            // current.style.color = '#000';
+            // current.style.backgroundColor = '#fff';
+
+        };
+
+
+        const start = () => {
+            console.log('ビンゴ開始')
+            if (oldBingo.length === 50) {
+                console.log('ビンゴ終了');
+                return;
+            }
+
+            let isIncluded = true;
+            let rand;
+            while (isIncluded) {
+                rand = Math.floor(Math.random() * 50) + 1;
+                console.log(rand);
+                isIncluded = oldBingo.includes(rand);
+                console.log(isIncluded)
+            }            
+
+            const bingo = document.getElementById('bingo')
+            const bingoNumList = Object.keys(bingo.childNodes).filter((childKey) => {
+                const child = bingo.childNodes[childKey];
+                // console.log(child.nodeName)
+                return child.nodeName === 'LI';
+            }).map((childKey) => bingo.childNodes[childKey]);
+
+
+            const current = bingoNumList[rand - 1];
+
+            console.log(rand, current)
+
+            current.style.color = '#fff';
+            current.style.backgroundColor = '#f00';
+
+
+
+            console.log(oldList)
+            oldList.forEach((old) => {
+                console.log(old);
+                old.style.backgroundColor = '#ffa2dd';
+
+            });
+
+            oldList.push(current);
+
+            console.log(oldList);
+
+            oldBingo.push(rand);
+
+            console.log(oldBingo);
+
+        };
+    </script>
+</head>
+
+<body>
+    <div class="botan">
+        <div class="start">
+            <p id="startBtn" onclick="start()" >Start</p>
+        </div>
+        <div class="reset">
+            <p id="resetBtn" onclick="reset()" >Reset</p>
+        </div>
+    </div>
+    <div class="wrap">
+        <ol id="bingo">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+            <li>17</li>
+            <li>18</li>
+            <li>19</li>
+            <li>20</li>
+            <li>21</li>
+            <li>22</li>
+            <li>23</li>
+            <li>24</li>
+            <li>25</li>
+            <li>26</li>
+            <li>27</li>
+            <li>28</li>
+            <li>29</li>
+            <li>30</li>
+            <li>31</li>
+            <li>32</li>
+            <li>33</li>
+            <li>34</li>
+            <li>35</li>
+            <li>36</li>
+            <li>37</li>
+            <li>38</li>
+            <li>39</li>
+            <li>40</li>
+            <li>41</li>
+            <li>42</li>
+            <li>43</li>
+            <li>44</li>
+            <li>45</li>
+            <li>46</li>
+            <li>47</li>
+            <li>48</li>
+            <li>49</li>
+            <li>50</li>
+        </ol>
+    </div>
+</body>
+
+</html>
