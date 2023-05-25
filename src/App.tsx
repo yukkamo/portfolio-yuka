@@ -11,6 +11,14 @@ const WORKS_LIST = [
     linkUrl: "./static/works/bingogame/index.html",
     imageUrl: "./static/images/bingo.jpg",
   },
+
+  {
+    name: "商品サイト【シャンプー】",
+    description: "「新商品シャンプーのサービスサイト」をテーマに作成しました。",
+    memo: "レスポンシブ対応しています。",
+    linkUrl: "./static/works/shampoo/index.html",
+    imageUrl: "./static/images/shampoo.png",
+  },
 ];
 
 function App() {
@@ -45,10 +53,12 @@ function App() {
                   </a>
 
                   <div>{workData.description}</div>
+
+                  <div>{workData.memo}</div>
                 </div>
 
                 <div className="right">
-                  <img src={workData.imageUrl} alt="ビンゴマシンのサムネイル" />
+                  <img src={workData.imageUrl} alt="作品のサムネイル" />
                 </div>
               </div>
             );
@@ -145,13 +155,16 @@ const WorksContainer = styled.div`
     column-gap: 12px;
     border: solid 2px #1a2b3b;
     border-radius: 8px;
+    width: 80%;
     height: auto;
+    margin: 0 auto;
     padding: 24px;
 
     .left {
       display: flex;
       flex-direction: column;
       row-gap: 4px;
+      width: 400px;
       height: 100%;
       margin-bottom: 30px;
 
